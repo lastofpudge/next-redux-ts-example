@@ -2,7 +2,6 @@ import { configureStore } from "@reduxjs/toolkit";
 import basketReducer from "./basket/basket.slice";
 import storage from "redux-persist/lib/storage";
 import { persistReducer } from "redux-persist";
-import logger from "redux-logger";
 
 // redux-persist
 const persistConfig = {
