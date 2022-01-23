@@ -2,6 +2,7 @@ import { configureStore } from "@reduxjs/toolkit";
 import basketReducer from "./basket/basket.slice";
 import storage from "redux-persist/lib/storage";
 import { persistReducer } from "redux-persist";
+import logger from "redux-logger";
 
 // redux-persist
 const persistConfig = {
@@ -15,6 +16,10 @@ export const store = configureStore({
   reducer: {
     basket: persistedReducer,
   },
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware({
+      serializableCheck: false, //fix console err
+    }),
 });
 
 export type RootState = ReturnType<typeof store.getState>;
