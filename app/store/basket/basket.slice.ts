@@ -27,7 +27,7 @@ const BasketState: Basket = {
   ],
 };
 
-export const basketItemsSlice = createSlice({
+export const basketSlice = createSlice({
   name: "basket",
   initialState: BasketState,
   reducers: {
@@ -59,5 +59,5 @@ export const basketItemsSlice = createSlice({
   },
 });
 
-export const { increment, decrement, remove } = basketItemsSlice.actions;
-export default basketItemsSlice.reducer;
+export const { increment, decrement, remove } = basketSlice.actions;
+export default basketSlice.reducer;
