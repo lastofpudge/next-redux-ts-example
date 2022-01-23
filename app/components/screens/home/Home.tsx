@@ -26,7 +26,7 @@ export default function Home() {
                 <ul role="list" className="-my-6 divide-y divide-gray-200">
                   {basket.items &&
                     basket.items.map((item) => (
-                      <Item key={item.id} item={item} />
+                      <Item key={item.id} {...item} />
                     ))}
                 </ul>
               </div>

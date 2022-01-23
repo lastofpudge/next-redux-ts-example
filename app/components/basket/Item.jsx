@@ -4,7 +4,7 @@ import Image from "next/image";
 import { increment, decrement, remove } from "../../store/basket/basket.slice";
 import { useDispatch } from "react-redux";
 
-export default function Item(data) {
+export default function Item(item) {
   const dispatch = useDispatch();
 
   return (
@@ -13,7 +13,7 @@ export default function Item(data) {
         <Image
           width="100%"
           height="100%"
-          src={data.item.imageUrl}
+          src={item.imageUrl}
           alt="Salmon orange fabric pouch with match zipper, gray zipper pull, and adjustable hip belt."
           className="w-full h-full object-center object-cover"
         />
@@ -23,20 +23,20 @@ export default function Item(data) {
         <div>
           <div className="flex justify-between text-base font-medium text-gray-900">
             <h3>
-              <a href="#">{data.item.title}</a>
+              <a href="#">{item.title}</a>
             </h3>
-            <p className="ml-4">${data.item.totalPrice}</p>
+            <p className="ml-4">${item.totalPrice}</p>
           </div>
-          <p className="mt-1 text-sm text-gray-500">{data.item.color}</p>
+          <p className="mt-1 text-sm text-gray-500">{item.color}</p>
         </div>
         <div className="flex-1 flex items-end justify-between text-sm">
-          <p className="text-gray-500">Qty {data.item.qty}</p>
+          <p className="text-gray-500">Qty {item.qty}</p>
 
           <div className="">
             <button
               type="button"
               className="font-medium text-indigo-600 bg-blue-600 text-white py-2 mb-2 px-2"
-              onClick={() => dispatch(increment(data.item.id))}
+              onClick={() => dispatch(increment(item.id))}
             >
               increment
             </button>
@@ -44,7 +44,7 @@ export default function Item(data) {
             <button
               type="button"
               className="font-medium text-indigo-600 bg-yellow-600 text-white py-2 mb-2 px-2"
-              onClick={() => dispatch(decrement(data.item.id))}
+              onClick={() => dispatch(decrement(item.id))}
             >
               decrement
             </button>
@@ -55,8 +55,8 @@ export default function Item(data) {
               onClick={() =>
                 dispatch(
                   remove({
-                    id: data.item.id,
-                    totalPrice: data.item.totalPrice,
+                    id: item.id,
+                    totalPrice: item.totalPrice,
                   })
                 )
               }
