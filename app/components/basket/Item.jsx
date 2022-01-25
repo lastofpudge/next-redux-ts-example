@@ -1,7 +1,7 @@
-import React, { useEffect } from "react";
+import React from "react";
 import Image from "next/image";
 
-import { increment, decrement, remove } from "../../store/basket/basket.slice";
+import { incQty, decrQty, remove } from "../../store/basket/basket.slice";
 import { useDispatch } from "react-redux";
 
 export default function Item(item) {
@@ -36,7 +36,7 @@ export default function Item(item) {
             <button
               type="button"
               className="font-medium text-indigo-600 bg-blue-600 text-white py-2 mb-2 px-2"
-              onClick={() => dispatch(increment(item.id))}
+              onClick={() => dispatch(incQty(item.id))}
             >
               increment
             </button>
@@ -44,7 +44,7 @@ export default function Item(item) {
             <button
               type="button"
               className="font-medium text-indigo-600 bg-yellow-600 text-white py-2 mb-2 px-2"
-              onClick={() => dispatch(decrement(item.id))}
+              onClick={() => dispatch(decrQty(item.id))}
             >
               decrement
             </button>

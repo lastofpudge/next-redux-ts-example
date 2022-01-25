@@ -3,6 +3,7 @@ import Head from "next/head";
 import { RootState } from "../../../store/store";
 import { useSelector } from "react-redux";
 
+import Input from "../../basket/Input";
 import Item from "../../basket/Item";
 
 export default function Home() {
@@ -17,6 +18,7 @@ export default function Home() {
       </Head>
 
       <div className="container mx-auto container__basket">
+        <Input />
         <div className="flex flex-col bg-white shadow-xl">
           <div className="flex-1 py-6 overflow-y-auto px-4 sm:px-6">
             <div className="flex items-start justify-between"></div>

@@ -1,5 +1,6 @@
 import { configureStore } from "@reduxjs/toolkit";
 import basketReducer from "./basket/basket.slice";
+import userReducer from "./test/user.slice";
 import storage from "redux-persist/lib/storage";
 import { persistReducer } from "redux-persist";
 
@@ -9,11 +10,12 @@ const persistConfig = {
   storage,
 };
 
-const persistedReducer = persistReducer(persistConfig, basketReducer);
+const basketPersistedReducer = persistReducer(persistConfig, basketReducer);
 
 export const store = configureStore({
   reducer: {
-    basket: persistedReducer,
+    basket: basketPersistedReducer,
+    user: userReducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({

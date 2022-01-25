@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { Basket } from "./basketTypes";
+import { Basket } from "./basket.types";
 
 const BasketState: Basket = {
   total: 500,
@@ -31,7 +31,7 @@ export const basketSlice = createSlice({
   name: "basket",
   initialState: BasketState,
   reducers: {
-    increment: (state, action: PayloadAction<number>) => {
+    incQty: (state, action: PayloadAction<number>) => {
       state.items.map(function (item) {
         if (item.id === action.payload) {
           item.qty++;
@@ -40,7 +40,7 @@ export const basketSlice = createSlice({
         }
       });
     },
-    decrement: (state, action: PayloadAction<number>) => {
+    decrQty: (state, action: PayloadAction<number>) => {
       state.items.map(function (item) {
         if (item.id === action.payload && item.qty > 1) {
           item.qty--;
@@ -59,5 +59,5 @@ export const basketSlice = createSlice({
   },
 });
 
-export const { increment, decrement, remove } = basketSlice.actions;
+export const { incQty, decrQty, remove } = basketSlice.actions;
 export default basketSlice.reducer;
